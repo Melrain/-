@@ -20,7 +20,6 @@ var clickList = [];
 var index = 0;
 
 $(".btn").on("click", function () {
-  blinkEffect(this);
   colorSound(this);
   console.log(this);
   if (this == buttonList[index]) {
@@ -45,7 +44,6 @@ function generateRandomButton() {
   $("h1").text(`第 ${index + 1} 关`);
   var randomButton = $(".btn")[Math.floor(Math.random() * 4)];
   setTimeout(() => {
-    blinkEffect(randomButton);
     colorSound(randomButton);
     buttonList.push(randomButton);
   }, 500);
@@ -75,18 +73,22 @@ function colorSound(button) {
     case "blue":
       var audio = new Audio("sounds/blue.mp3");
       audio.play();
+      blinkEffect(button);
       break;
     case "green":
       var audio = new Audio("sounds/green.mp3");
       audio.play();
+      blinkEffect(button);
       break;
     case "red":
       var audio = new Audio("sounds/red.mp3");
       audio.play();
+      blinkEffect(button);
       break;
     case "yellow":
       var audio = new Audio("sounds/yellow.mp3");
       audio.play();
+      blinkEffect(button);
       break;
     default:
       break;
